@@ -113,8 +113,8 @@ network_check() {
 update_os() {
 sed 's|http://deb.debian.org/debian|https://mirrors.tuna.tsinghua.edu.cn/debian|g' /etc/apt/sources.list
 sed 's|https://security.debian.org/debian-security|https://mirrors.tuna.tsinghua.edu.cn/debian-security|g' /etc/apt/sources.list
-echo "sed done" 
-cat /etc/apt/sources.list
+msg_info "sed done" 
+msg_info `cat /etc/apt/sources.list`
   msg_info "Updating Container OS"
   $STD apt-get update
   $STD apt-get -o Dpkg::Options::="--force-confold" -y dist-upgrade
